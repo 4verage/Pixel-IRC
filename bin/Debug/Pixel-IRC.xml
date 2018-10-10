@@ -1,0 +1,285 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Pixel-IRC</name>
+    </assembly>
+    <members>
+        <member name="T:Pixel_IRC.ChannelWindow">
+            <summary>
+            Interaction logic for ChannelWindow.xaml
+            </summary>
+            <summary>
+            ChannelWindow
+            </summary>
+        </member>
+        <member name="M:Pixel_IRC.ChannelWindow.#ctor(System.Windows.Controls.StackPanel)">
+            <summary>
+            Constructor for Window component.
+            </summary>
+        </member>
+        <member name="M:Pixel_IRC.ChannelWindow.setChannel">
+            <summary>
+            Used to set the channel name of this window's hosted channel.
+            </summary>
+        </member>
+        <member name="M:Pixel_IRC.ChannelWindow.getChannel">
+            <summary>
+            Used to get the name of this window's hosted IRC channel.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pixel_IRC.ChannelWindow.setColor(System.String)">
+            <summary>
+            Searches settings file and returns the provided color.
+            </summary>
+            <param name="getKey">The key to search settings file for.</param>
+            <returns>Returns a SolidColorBrush object to paint the color with.</returns>
+        </member>
+        <member name="M:Pixel_IRC.ChannelWindow.updateNameList(System.String,System.Int32)">
+            <summary>
+            Populate the nickList Listbox of channel's usernames.
+            </summary>
+            <param name="users">List of users passed in from stream reader.</param>
+            <param name="append">Used to determine if this line is to be appended or begin the nick list. (Used for channels with lots of users).</param>
+        </member>
+        <member name="M:Pixel_IRC.ChannelWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Pixel_IRC.MainWindow">
+            <summary>
+            Interaction logic for MainWindow.xaml
+            </summary>
+            <summary>
+            MainWindow
+            </summary>
+        </member>
+        <member name="M:Pixel_IRC.MainWindow.CommandProcessor(System.String,System.Object)">
+            <summary>
+            Checks user input and decides what to do with it.
+            </summary>
+            <param name="userInput">Passed string</param>
+            <param name="sender">The object that requested the function call.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Pixel_IRC.MainWindow.StreamParser(System.String)">
+            <summary>
+            Will take the converted stream data and route as necessary once parsed.
+            </summary>
+            <param name="streamData"></param>
+            <returns></returns>
+        </member>
+        <member name="F:Pixel_IRC.MainWindow.myNick">
+            <summary>
+            String that contains logged-in user's Nick.
+            </summary>
+        </member>
+        <member name="M:Pixel_IRC.MainWindow.#ctor">
+            <summary>
+            Primary Initialization of main program.
+            </summary>
+        </member>
+        <member name="M:Pixel_IRC.MainWindow.MainWindow_Closed(System.Object,System.EventArgs)">
+            <summary>
+            Handles all functions that occur when closing the program.
+            </summary>
+        </member>
+        <member name="M:Pixel_IRC.MainWindow.sendOut(System.String)">
+            <summary>
+            Prepares a string [input] and sends it to the stream and then displays in the output window.
+            </summary>
+            <param name="input"> The string that should be sent out to the IRC server. </param>
+        </member>
+        <member name="M:Pixel_IRC.MainWindow.isChannel(System.String)">
+            <summary>
+            Used to check if a ChannelWindow exists or not.
+            </summary>
+            <param name="chanName">This should be the name of the ChannelWindow using our naming convention ('channel[channel name (no '#')]')</param>
+            <returns></returns>
+        </member>
+        <member name="M:Pixel_IRC.MainWindow.parseMessage(System.String,System.String,System.String)">
+            <summary>
+            Receives data from the StreamParser as a "PRIVMSG" and then determines where to send it.
+            </summary>
+            <param name="dest">Destination of private message.</param>
+            <param name="content">Message to include once the destination is set.</param>
+            <param name="sender">Name who sent message.</param>
+        </member>
+        <member name="M:Pixel_IRC.MainWindow.sendToChannel(System.String,System.String,System.String)">
+            <summary>
+            Send messages to IRC channels.
+            </summary>
+            <param name="channel">IRC Channel name to send message to.</param>
+            <param name="nick">The username that originally sent the message.</param>
+            <param name="message">The content of the user's message.</param>
+        </member>
+        <member name="M:Pixel_IRC.MainWindow.windowExists(System.String)">
+            <summary>
+            Quick check to determine if a window name is already registered.
+            </summary>
+            <param name="windowName">The name of the window to look for.</param>
+            <returns>True/False</returns>
+        </member>
+        <member name="M:Pixel_IRC.MainWindow.getNick">
+            <summary>
+            Get currently set user Nick.
+            </summary>
+            <returns>Returns the nickname being used.</returns>
+        </member>
+        <member name="M:Pixel_IRC.MainWindow.setNick(System.String)">
+            <summary>
+            Sets user nickname.
+            </summary>
+            <param name="nick">The nickname wishing to be used.</param>
+        </member>
+        <member name="M:Pixel_IRC.MainWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:Pixel_IRC.File_Tools.readSettings(System.String)">
+            <summary>
+            Reads from our custom settings file for specific values.
+            </summary>
+            <param name="value">The value to look for in the file.</param>
+            <returns>Returns the content of the value searched for.</returns>
+        </member>
+        <member name="M:Pixel_IRC.File_Tools.getColor(System.String)">
+            <summary>
+            Returns the byte values for the color name specified.
+            </summary>
+            <param name="colorName">The setting name to grab</param>
+            <returns></returns>
+        </member>
+        <member name="M:Pixel_IRC.IRC_Server.#ctor(System.String,System.String,System.Int32)">
+            <summary>
+            Constructs an IRC_Server data element which stores IRC server information for connections.
+            </summary>
+            <param name="header">Name to show IRC server as.</param>
+            <param name="server">The URL for the server.</param>
+            <param name="portnum">Port number for the IRC server, default is 6667.</param>
+        </member>
+        <member name="T:Pixel_IRC.Settings">
+            <summary>
+            Interaction logic for Settings.xaml
+            </summary>
+            <summary>
+            Settings
+            </summary>
+        </member>
+        <member name="F:Pixel_IRC.Settings.isOpen">
+            <summary>
+            Static string used to track whether this window has already been instanced and is open.
+            </summary>
+        </member>
+        <member name="M:Pixel_IRC.Settings.#ctor">
+            <summary>
+            Constructor for the Settings window.
+            </summary>
+        </member>
+        <member name="M:Pixel_IRC.Settings.Settings_Closed(System.Object,System.EventArgs)">
+            <summary>
+            Provides the actions to take when this window is closed.
+            </summary>
+            <param name="sender">Generic parameter for the object that sent the command.</param>
+            <param name="e">Generic identifier for the Events actionable as 'Closed'.</param>
+        </member>
+        <member name="M:Pixel_IRC.Settings.settingsFileExists">
+            <summary>
+            Check to see if the file exists.
+            </summary>
+            <returns>Returns true if the file exists.</returns>
+        </member>
+        <member name="M:Pixel_IRC.Settings.writeSettings(System.String,System.String)">
+            <summary>
+            Writes to our custom settings file.
+            </summary>
+            <param name="setting">The data to write to the file.</param>
+            <param name="value">The value of the field that needs to be altered (I.E. winColor)</param>
+            <returns>Returns true if write was successful.</returns>
+        </member>
+        <member name="M:Pixel_IRC.Settings.resetToDefaults">
+            <summary>
+            Contains all of the default settings for the program. Can re-write them to the settings file to restore default settings.
+            </summary>
+        </member>
+        <member name="M:Pixel_IRC.Settings.createSettingsFile">
+            <summary>
+            Creates the settings file (normally not found by method settingsFileExists) and fills the data with method resetToDefaults.
+            </summary>
+        </member>
+        <member name="M:Pixel_IRC.Settings.loadServers">
+            <summary>
+            Fills the server comboBox for server selection.
+            </summary>
+        </member>
+        <member name="M:Pixel_IRC.Settings.loadColors">
+            <summary>
+            Loads colors from settings file and fills the color settings window.
+            </summary>
+        </member>
+        <member name="M:Pixel_IRC.Settings.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:Pixel_IRC.WindowBorders.MinClose(System.Windows.Window)">
+            <summary>
+            Creates a Window border around an existing Window object that allows minimizing and closing.
+            </summary>
+            <param name="sender">Should be the Window object sending the border request (normally: this)</param>
+        </member>
+        <member name="M:Pixel_IRC.WindowBorders.winBorder(System.Windows.Controls.Orientation,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Prepares a new StackPanel for the border element to trim code.
+            </summary>
+            <param name="direction">Direction StackPanel will add new items.</param>
+            <param name="rowNum">Indicates row number in the required parent Grid.</param>
+            <param name="colNum">Indicates column number in the required parent Grid.</param>
+            <param name="spanNum">OPTIONAL: Number of columns a row can span.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Pixel_IRC.WindowBorders.stringSpacer(System.String)">
+            <summary>
+            Takes a string and uses the C# built-in string indexer to add spaces between each existing character. (Faux letter-spacing)
+            </summary>
+            <param name="title">The string passed for processing.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Pixel_IRC.App">
+            <summary>
+            Interaction logic for App.xaml
+            </summary>
+            <summary>
+            App
+            </summary>
+        </member>
+        <member name="M:Pixel_IRC.App.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:Pixel_IRC.App.Main">
+            <summary>
+            Application Entry Point.
+            </summary>
+        </member>
+        <member name="T:Pixel_IRC.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Pixel_IRC.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Pixel_IRC.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+    </members>
+</doc>

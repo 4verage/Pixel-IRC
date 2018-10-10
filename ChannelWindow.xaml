@@ -1,0 +1,24 @@
+﻿<Window x:Class="Pixel_IRC.ChannelWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Pixel_IRC"
+        mc:Ignorable="d"
+        Title="ChannelWindow" Height="321.485" Width="525.2"
+        Closed="Channel_Closed">
+    <Grid x:Name="chanBody">
+        <Grid.Background>
+            <SolidColorBrush Color="Black" Opacity="0.8"/>
+        </Grid.Background>
+        <RichTextBox x:Name="chanText" Margin="10,10,130,30" Background="Black" Foreground="#FF98AC80">
+            <FlowDocument LineHeight="1">
+                <Paragraph>
+                    <Run Text="RichTextBox"/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+        <ListBox x:Name="nickList" HorizontalAlignment="Right" Margin="0,10,5,5" Width="118" Background="Black" Foreground="#FF8B8B8B" ContextMenuOpening="nickList_SubMenu" VerticalContentAlignment="Top"/>
+        <TextBox x:Name="txtUserInput" Height="20" Margin="10,0,130,5" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Bottom" Background="Black" Foreground="#FF41CD2B" KeyDown="txtUserInput_KeyDown"/>
+    </Grid>
+</Window>

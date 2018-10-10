@@ -1,0 +1,29 @@
+[chanUserInput] 255, 255, 255
+[chanJoin] 0, 0, 255
+[chanPart] 0, 0, 255
+[IRC_Server_Name] DALnet
+[IRC_Server] irc.dal.net
+[IRC_Server_Port] 6868
+[color_CS_ChatWindow] 0, 0, 0
+[color_CS_UserMessages] 166, 166, 166
+[color_CS_OwnMessages] 17, 255, 0
+[color_CS_InputField] 0, 0, 0
+[color_CS_InputText] 255, 255, 255
+[color_NL_Background] 0, 0, 0
+[color_NL_Nicknames] 166, 166, 166
+[color_NL_OPNicks] 0, 255, 0
+[color_NL_VNicks] 255, 0, 255
+[color_Action_Join] 0, 255, 0
+[color_Action_Part] 0, 255, 0
+[color_Action_Kick] 180, 180, 0
+[color_Action_Ban] 255, 0, 0
+[color_Action_Default] 0, 255, 0
+[color_Action_Invite] 0, 255, 0
+[color_Action_Topic] 0, 255, 0
+[color_System_Window] 100, 100, 100
+[color_System_Font] 166, 166, 166
+[color_System_StatusWindow] 0, 0, 0
+[color_System_StatusFont] 255, 0, 0
+[channel_dock_monitor] DISPLAY1
+[channel_dock_position] R
+[channel_dock_onTop] 1
